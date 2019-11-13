@@ -15,7 +15,7 @@ plt.show()
 #y=cos(t)*(e^cos(t)-2cos(4t)+sin^5(1/12t))
 #t is[0;12π]
 
-t = np.linspace(0, 12*np.pi,500)
+t = np.linspace(1, 12*np.pi,500)
 x = np.sin(t)*(np.exp(np.cos(t)-2*np.cos(4*t)+np.sin(1/(12*t)**5)))
 y = np.cos(t)*(np.exp(np.cos(t)-2*np.cos(4*t)+np.sin(1/(12*t)**5)))
 
@@ -28,12 +28,19 @@ plt.title("Batterfly")
 plt.grid()
 plt.show()
 
-#====LEMINISKATA BERNULI====
-# theta = np.arange
-dots = np.linspace(0, 10, 10)
-cont = [(23,5),(13,1),(1,2)]
-a = Polinom(cont,5)
-poly_y = a(dots,2)
+#====POLYNOMIAL PLOT====
+dots = np.linspace(-10, 10, 30)
+a = Polinom([(23,5),(13,1),(1,2)], 5)
+b = Polinom([(-20,5),(13,3),(1,2),(5,7),(-10,10)], 10)
+y_poly_a = a.count_plot(dots)
+y_poly_b = b.count_plot(dots)
+print(y_poly_a)
+print(y_poly_b)
 
-plt.plot(dots,poly_y)
+plt.xlabel("X")
+plt.ylabel("Y")
+plt.grid()
+
+plt.plot(dots,y_poly_a)
+plt.plot(dots,y_poly_b,"r--")
 plt.show()
