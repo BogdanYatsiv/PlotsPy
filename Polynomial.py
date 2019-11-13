@@ -90,6 +90,16 @@ class Polinom:
                 raise IndexError("Bad index")
         else:
             raise IndexError("Bad index")
+    
+    def count_plot(self,val):
+        """Для побудови графіку поліному"""
+        if self.values == []:
+            return 0
+        else:
+            sum = 0
+            for x in self.values:
+                sum += x[0]*(val**x[1])
+            return sum
 
     def __mul__(self,other):
         """Перевантаження оператора * """
