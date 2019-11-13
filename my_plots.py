@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import matplotlib.pyplot as plt
 import numpy as np
+from Polynomial import *
 
 #====PLOT====
 t = linspace(0, 3, 51)# 51 dot betwen 0 and 3
@@ -28,4 +29,11 @@ plt.grid()
 plt.show()
 
 #====LEMINISKATA BERNULI====
-theta = np.arange
+# theta = np.arange
+dots = linspace(0, 10, 10)
+cont = [(23,5),(13,1),(1,2)]
+a = Polinom(cont,5)
+poly_y = a(dots,2)
+
+plt.plot(dots,poly_y)
+plt.show()

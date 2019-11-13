@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class Iterator:
     """Клас для ітерування поліному"""
     def __init__(self,data,step=1):
