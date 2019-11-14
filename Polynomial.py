@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+#Polynomial class for Plots
 class Iterator:
     """Клас для ітерування поліному"""
     def __init__(self,data,step=1):
@@ -74,25 +74,13 @@ class Polinom:
         second = ""
         for x in self.values:
             if x[0]>0:
-                second += f" + {x[0]}*x^{x[1]}"
-            else: second += f"  {x[0]}*x^{x[1]}"
+                second += f" + {x[0]}x^{x[1]}"
+            else: second += f"  {x[0]}x^{x[1]}"
 
         return first + second[2:]
 
-    def __call__(self,val,i):
+    def __call__(self,val):
         """Перевантаження оператора ()"""
-        if i >= 0:
-            if i in self.indexes:
-                for x in self.values:
-                    if x[1] == i:
-                        return x[0]*(val**i)
-            else:
-                raise IndexError("Bad index")
-        else:
-            raise IndexError("Bad index")
-    
-    def count_plot(self,val):
-        """Для побудови графіку поліному"""
         if self.values == []:
             return 0
         else:
@@ -149,9 +137,6 @@ class Polinom:
     def __iter__(self):
         """Перевантаження ітерування"""
         return Iterator(self.values)
-
-    # def __del__(self):
-    #     print("Deleting polynome")
 
 
 class PolynomeManager:
